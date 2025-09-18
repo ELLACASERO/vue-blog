@@ -33,7 +33,6 @@ npm run build
 ```sh
 npm run lint
  
-
-![alt text](<Screenshot 2025-09-03 131207.png>)
-![alt text](<Screenshot 2025-09-18 121110.png>)
-![alt text](<Screenshot 2025-09-18 121439.png>)
+![Screenshot 1](assets/screenshot-2025-09-03.png)
+![Screenshot 2](assets/screenshot-2025-09-18-121110.png)
+![Screenshot 3](assets/screenshot-2025-09-18-121439.png)
