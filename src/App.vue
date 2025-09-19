@@ -1,63 +1,61 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-
 </script>
 
 <template>
-  <header>  
+  <header>
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/add-post">Add Post</RouterLink>
+        <RouterLink to="/" class="nav-link">
+            <span class="material-icons">home</span>
+            Home</RouterLink>
+        <RouterLink to="/post-create" class="nav-link">
+           <span class="material-icons">add_circle</span>
+            New Post</RouterLink>
       </nav>
   </header>
-
   <RouterView />
 </template>
 
-<!-- 
 <style lang="scss" scoped>
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 1rem 2rem;
-  background-color: #90caf9;
-  border-bottom: 1px solid #90caf9;
-  .nav-link {
-    color: #fff;
-    padding: 5px 15px;
-    border-radius: 5px;
-    transition: all 0.2s ease-in-out;
-    margin-right: 1rem;
-    &:hover {
-      background-color: #90caf9;
+  nav {
+    padding: 1rem 2rem;
+    background: #f015a3;
+    border-bottom: 1px solid #f3449b;
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #fff;
+      padding: 5px 15px;
+      border-radius: 5px;
+      transition: all 0.2s ease-in-out;
+      margin-right: 1rem;
+      position: relative;
+      text-decoration: none;
+
+      .material-icons {
+        font-size: 20px;
+      }
+      
+      &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #fb3eb0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &.router-link-exact-active::after {
+      width: 100%;   
+    }
     }
   }
-}
-</style> -->
-<style lang="scss" scoped>
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: #db5299;
-}
-
-nav {
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #2f86ce;
-}
-
-nav a {
-  color: #0f0606;
-  padding: 5px 15px;
-  border-radius: 5px;
-  transition: all 0.2s ease-in-out;
-  margin-right: 1rem;
-  text-decoration: none;
-}
-
-nav a:hover {
-  background-color: #0b5490;
-}
 </style>

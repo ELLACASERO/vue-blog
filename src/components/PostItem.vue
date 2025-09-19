@@ -1,70 +1,82 @@
 <script setup>
+
 defineProps({
-    post: {
-        type: Object,
-        required: true
-    }
+post: {
+    type: Object,
+    required: true
+}
 })
+
+
 </script>
 
 <template>
-<div>
-          <div class="header">
-          <span>Written by {{ post.name }} on {{ post.date }}</span>
-          <div>
+    <div>
+     <div class="header">
+        <span>POST ID NO. {{ post.id }}</span>
+        <div>
             <button class="del material-icons">delete</button>
             <button class="save material-icons">bookmark_border</button>
-          </div>
         </div>
+        </div>
+        <div class="content">
         <h1>{{ post.title }}</h1>
-        <p>{{ post.body }}</p>
-</div>
+        <p>{{ post.body}}</p>
+        </div>
+    </div>
 </template>
 
 
 <style lang="scss" scoped>
   .header {
+    font-size: 20px;
+    font-style: bold;
+    background: #f015cf;
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
-
-    span {
-      color: #888;
-      font-size: 0.95rem;
-    }
-
+    color: #fff;
+    font-weight: 300;
     button {
-      background: #f5f5f5;
-      border: none;
-      border-radius: 6px;
-      padding: 8px 16px;
-      margin-left: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.2s;
+      border-radius: 30px;
+    }
 
-      &.del {
-        color: #d32f2f;
-      }
-      &.save {
-        color: #388e3c;
-      }
-      &:hover {
-        background: #e0e0e0;
+    div {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+       .del {
+          font-size: 20px;
+          padding: 3px;
+          background: #fff;
+          color: #ef4444;   
+        }
+        .save {
+          font-size: 20px;
+          padding: 3px;
+          background: #fff;
+          color: #14a841;
       }
     }
-  }
+}
+   .content {
+    padding: 1rem;
+    
+     h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #1e293b;
+      text-transform: capitalize;
+    }
 
-  h1 {
-    font-size: 2.2rem;
-    margin-bottom: 16px;
-    color: #222;
-  }
-
-  p {
-    font-size: 1.15rem;
-    color: #444;
-    line-height: 1.7;
-  }
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #475569;
+      white-space: pre-line;
+    }
+}
 </style>
