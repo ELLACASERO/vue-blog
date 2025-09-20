@@ -13,7 +13,7 @@ const post = reactive({
 })
 
 const isFormInvalid = computed(() => {
-  return post.title === '' || post.body === ''
+  return post.title.trim() === '' || post.body.trim() === ''
 })
 
 const handleSubmit = () => {
@@ -24,107 +24,121 @@ const handleSubmit = () => {
 
 <template>
   <MyWrapper>
-   <div class="header">
-    <span>Create a New Post</span>
-        <div>
-            <RouterLink to="/" class="back-link">
-            <span class="material-icons">arrow_back</span>
-            </RouterLink>
-        </div>
+    <div class="header">
+      <span>Create a New Post</span>
+      <RouterLink to="/" class="back-link">
+        <span class="material-icons">arrow_back</span>
+      </RouterLink>
     </div>
 
     <div class="content">
       <form @submit.prevent="handleSubmit">
-      <div>
-        <label>Post Title</label>
-        <input type="text" v-model="post.title" />
-      </div>
-      <div>
-        <label>Post Body</label>
-        <textarea rows="7" v-model="post.body"></textarea>
-      </div>
-      <div>
-        <button :disabled="isFormInvalid">Add</button>
-      </div>
-    </form>
-   </div>
+        <div class="form-group">
+          <label>Post Title</label>
+          <input type="text" v-model="post.title" placeholder="Enter post title" />
+        </div>
+        <div class="form-group">
+          <label>Post Body</label>
+          <textarea rows="7" v-model="post.body" placeholder="Write your post here..."></textarea>
+        </div>
+        <button type="submit" :disabled="isFormInvalid">Add Post</button>
+      </form>
+    </div>
   </MyWrapper>
 </template>
 
 <style lang="scss" scoped>
 .header {
-    font-size: 20px;
-    background: #f01582;
-    padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(90deg, #f015a7, #ff85d2);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-radius: 12px 12px 0 0;
+
+  .back-link {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    color: #fff;
-    font-weight: 500;
+    justify-content: center;
+    background: #fff;
+    color: #f01598;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    text-decoration: none;
+    transition: all 0.2s ease;
 
-        .back-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #fff;
-        color: #f015a7;
-        border-radius: 30px;
-        padding: 5px;
-        text-decoration: none;
-        transition: background 0.2s ease-in-out;
-
-        .material-icons {
-        font-size: 20px;
-        }
-
-        &:hover {
-        background: #e0e7ff;
-        }
+    .material-icons {
+      font-size: 20px;
     }
+
+    &:hover {
+      background: #fce4f0;
+    }
+  }
 }
+
 .content {
-    padding: 1.5rem;
-    
-    form {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 
-        label {
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-            display: block;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      label {
+        font-weight: 500;
+        color: #1e293b;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #f63bb2;
+          box-shadow: 0 0 0 3px rgba(246, 59, 178, 0.2);
         }
-
-        input,
-        textarea {
-            width: 100%;
-            border: 1px solid #333;
-            padding: 8px;
-            border-radius: 5px;
-
-            &:focus {
-                outline: 2px solid #f63bab;
-                border: none;
-            }
-        }
-
-        button {
-            background: #f63b9c;
-            color: #fff;
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: 600;
-
-            &:hover {
-                background: #eb2588;
-            }
-
-            &:disabled {
-                background: #e32f92;
-            }
-        }
+      }
     }
+
+    button {
+      padding: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #fff;
+      background: #f63bb2;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+
+      &:hover:not(:disabled) {
+        background: #e53992;
+      }
+
+      &:disabled {
+        background: #f7a1d1;
+        cursor: not-allowed;
+      }
+    }
+  }
 }
 </style>

@@ -9,3 +9,6 @@
 
 # activity-7 Vue.js Pinia - Pinia Getters
 ![alt text](<Screenshot 2025-09-19 220722.png>)
+
+# activity-8 Vue.js Save-Delete
+![alt text](<Screenshot 2025-09-20 100854.png>)

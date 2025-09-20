@@ -19,8 +19,8 @@ import { RouterLink, RouterView } from 'vue-router'
 <style lang="scss" scoped>
   nav {
     padding: 1rem 2rem;
-    background: #f015a3;
-    border-bottom: 1px solid #f3449b;
+    background: #f0159c;
+    border-bottom: 1px solid #e346a4;
 
     .nav-link {
       display: inline-flex;
@@ -45,7 +45,7 @@ import { RouterLink, RouterView } from 'vue-router'
       bottom: 0;
       width: 0;
       height: 2px;
-      background: #fb3eb0;
+      background: #ff6ec5;
       transition: width 0.3s ease-in-out;
     }
 
